@@ -1,0 +1,49 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px;
+  }
+  
+  .actionButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .actionButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .actionButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .downloadButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .downloadButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .downloadButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
