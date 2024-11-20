@@ -27,5 +27,34 @@ A responsive web application to browse, search, and manage pet images. Users can
 ## Installation
 Clone the repository:
 ```
-
+git clone https://github.com/ShreyaDeexit/ReactWeb.git
 ```
+
+Install dependencies:
+```
+npm install
+```
+Start the development server:
+```
+npm start dev
+```
+
+## API Integration
+The application fetches pet data from the following endpoint:
+```
+https://eulerity-hackathon.appspot.com/pets
+```
+Each pet object includes:
+- url: Image URL.
+- title: Title of the pet.
+- description: Description of the pet.
+- created: Creation date in string format.
+
+## Future Enhancements
+- Favorites System: Allow users to mark and view their favorite pets.
+- Pagination or Infinite Scrolling: Handle larger datasets efficiently.
+- Detailed Pet Information: Show more details in a modal or separate page.
+- User Authentication: Save user preferences like favorites and themes.
+- Dark Mode: Add a toggle for dark mode.
+
+
