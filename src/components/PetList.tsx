@@ -105,11 +105,13 @@ const PetList: React.FC = () => {
   };
 
   const downloadSelectedImages = () => {
+    if (selectedImages.length === 0) {
+      alert('No images selected for download.');
+      return;
+    }
+
     selectedImages.forEach((url) => {
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = url.split('/').pop() || 'image.jpg';
-      link.click();
+      window.open(url, '_blank');
     });
   };
 

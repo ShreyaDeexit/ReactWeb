@@ -1,12 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import './styles/global.css';
+import AboutMe from './pages/AboutMe';
+import NavBar from './components/Navbar';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutMe />} />
+      </Routes>
+    </Router>
   );
 };
 

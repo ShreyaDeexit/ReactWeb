@@ -10,24 +10,47 @@ interface PetCardProps {
 
 // Styled-components
 const Card = styled.div<{ isSelected: boolean }>`
-  border: 1px solid ${(props) => (props.isSelected ? '#007bff' : '#ccc')};
+  border: ${(props) => (props.isSelected ? '3px solid #007bff' : '1px solid #ccc')};
   border-radius: 8px;
   padding: 12px;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-5px);
   }
 `;
 
-const Checkbox = styled.input`
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  transform: scale(1.2);
+const CheckboxContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+`;
+
+const StyledCheckbox = styled.input`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  outline: none;
+
+  &:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  &:checked::after {
+    content: '✔';
+    font-size: 14px;
+    color: white;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+  }
 `;
 
 const Image = styled.img`
@@ -38,16 +61,15 @@ const Image = styled.img`
 `;
 
 const Title = styled.h2`
-  font-size: 18px; /* Slightly larger font size */
+  font-size: 18px;
   font-weight: bold;
   margin: 8px 0;
-  color: #333; /* Ensure high contrast for better visibility */
-  text-align: center; /* Center-align the title */
-  white-space: nowrap; /* Prevent the text from breaking into multiple lines */
-  overflow: hidden; /* Hide any overflowing text */
-  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
-
 
 const Description = styled.p`
   font-size: 14px;
@@ -55,23 +77,39 @@ const Description = styled.p`
   margin: 4px 0;
 `;
 
-const Date = styled.p`
+const StyledDate = styled.p`
   font-size: 12px;
   color: #999;
 `;
 
+const formatDate = (dateString: string): string => {
+  try {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }).format(date);
+  } catch (error) {
+    console.error('Invalid date:', dateString);
+    return 'Invalid Date';
+  }
+};
+
 const PetCard: React.FC<PetCardProps> = ({ pet, isSelected, onSelect }) => {
   return (
     <Card isSelected={isSelected}>
-      <Checkbox
-        type="checkbox"
-        checked={isSelected}
-        onChange={onSelect}
-      />
+      <CheckboxContainer>
+        <StyledCheckbox
+          type="checkbox"
+          checked={isSelected}
+          onChange={onSelect}
+        />
+      </CheckboxContainer>
       <Image src={pet.url} alt={pet.title} />
       <Title>{pet.title}</Title>
       <Description>{pet.description}</Description>
-      <Date>{pet.created}</Date>
+      <StyledDate>{formatDate(pet.created)}</StyledDate>
     </Card>
   );
 };
