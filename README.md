@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Pet Image Viewer
+A responsive web application to browse, search, and manage pet images. Users can view images, filter them by title or description, select multiple images for download, and sort them alphabetically. The application is built using React, TypeScript, and Styled-Components, with features like responsive design and advanced image management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+### Core Features
+- View Images: Browse a list of pet images fetched from an external API.
+- Search: Filter images by title or description using a search bar.
+- Select and Download: Select multiple images to open them in new tabs or download them. Download all selected images as a ZIP file.
+- Sorting: Sort images alphabetically (A-Z or Z-A) by title.
+- Responsive Design: Adapts to all screen sizes (desktop, tablet, mobile).
+- 
+### Advanced Features
+- Select All / Clear Selection: Quickly select or clear all displayed images.
+- Customizable Layout: Built with Styled-Components for easy theming.
+- Performance Optimization: Efficient state management and rendering.
 
-Currently, two official plugins are available:
+## Tech Stack
+### Frontend
+- React: Component-based architecture.
+- TypeScript: Strongly typed JavaScript for robust development.
+- Styled-Components: For dynamic, reusable, and scoped CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Libraries Used
+- React-Router-Dom: For navigation (future enhancements).
+- Fetch API: For fetching pet data from the external endpoint.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+Clone the repository:
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
