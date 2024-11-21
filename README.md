@@ -57,4 +57,8 @@ Each pet object includes:
 - User Authentication: Save user preferences like favorites and themes.
 - Dark Mode: Add a toggle for dark mode.
 
+![page_result](https://github.com/user-attachments/assets/9c3f6ba1-aaad-4491-8fcd-57be9095f61e)
+
+
+
 
