@@ -36,7 +36,7 @@ npm install
 ```
 Start the development server:
 ```
-npm start dev
+npm run dev
 ```
 
 ## API Integration
